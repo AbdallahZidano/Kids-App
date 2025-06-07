@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import '../providers/user_provider.dart';
 import 'games_screen.dart';
 import 'learn_screen.dart';
+import 'stories_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -63,6 +64,20 @@ class HomeScreen extends StatelessWidget {
                         context,
                         MaterialPageRoute(
                           builder: (context) => const GamesScreen(),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 16),
+                    _buildCard(
+                      context,
+                      'Stories',
+                      'Watch educational stories',
+                      Icons.play_circle,
+                      Colors.purple,
+                      () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const StoriesScreen(),
                         ),
                       ),
                     ),
