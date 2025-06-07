@@ -4,7 +4,7 @@ import 'package:provider/provider.dart';
 import '../providers/user_provider.dart';
 import 'alphabet_screen.dart';
 import 'color_learning_screen.dart';
-import 'game_screen.dart';
+import 'games_screen.dart';
 import 'number_screen.dart';
 
 class HomeScreen extends StatelessWidget {
@@ -78,12 +78,12 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(height: 20),
                     _buildActivityButton(
                       context,
-                      'Learn Math',
-                      Icons.calculate,
+                      'Games',
+                      Icons.games,
                       () => Navigator.push(
                         context,
                         MaterialPageRoute(
-                          builder: (context) => const MathGameScreen(),
+                          builder: (context) => const GamesScreen(),
                         ),
                       ),
                     ),
