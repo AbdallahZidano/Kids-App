@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
+import 'alphabet_game_screen.dart';
 import 'math_game_screen.dart';
 
 class GamesScreen extends StatelessWidget {
@@ -32,6 +33,19 @@ class GamesScreen extends StatelessWidget {
                       context,
                       MaterialPageRoute(
                         builder: (context) => const MathGameScreen(),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(height: 16),
+                  _buildGameCard(
+                    context,
+                    'Alphabet Game',
+                    'Learn letters and words',
+                    Icons.abc,
+                    () => Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const AlphabetGameScreen(),
                       ),
                     ),
                   ),

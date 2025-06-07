@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:kids_learning/providers/alphabet_game_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'providers/alphabet_provider.dart';
@@ -27,9 +28,11 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AlphabetProvider()),
         ChangeNotifierProvider(create: (_) => GameSoundProvider()),
         ChangeNotifierProvider(create: (_) => NumberProvider()),
+        ChangeNotifierProvider(create: (_) => AlphabetGameProvider()),
       ],
       child: MaterialApp(
         title: 'Kids Learning',
+        debugShowCheckedModeBanner: false,
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true,
