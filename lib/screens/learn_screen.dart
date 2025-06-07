@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kids_learning/screens/alphabet_screen.dart';
 import 'package:kids_learning/screens/color_learning_screen.dart';
+import 'package:kids_learning/screens/month_screen.dart';
 import 'package:kids_learning/screens/number_screen.dart';
 
 class LearnScreen extends StatelessWidget {
@@ -47,6 +48,16 @@ class LearnScreen extends StatelessWidget {
                   MaterialPageRoute(
                     builder: (context) => const ColorLearningScreen(),
                   ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              _buildActivityButton(
+                context,
+                'Learn Months',
+                Icons.calendar_month,
+                () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const MonthScreen()),
                 ),
               ),
             ],
