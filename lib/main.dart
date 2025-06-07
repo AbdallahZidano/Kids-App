@@ -5,6 +5,7 @@ import 'providers/alphabet_provider.dart';
 import 'providers/color_provider.dart';
 import 'providers/game_provider.dart';
 import 'providers/game_sound_provider.dart';
+import 'providers/number_provider.dart';
 import 'providers/user_provider.dart';
 import 'screens/home_screen.dart';
 import 'screens/welcome_screen.dart';
@@ -25,6 +26,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => UserProvider()),
         ChangeNotifierProvider(create: (_) => AlphabetProvider()),
         ChangeNotifierProvider(create: (_) => GameSoundProvider()),
+        ChangeNotifierProvider(create: (_) => NumberProvider()),
       ],
       child: MaterialApp(
         title: 'Kids Learning',

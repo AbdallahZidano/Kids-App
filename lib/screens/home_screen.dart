@@ -5,6 +5,7 @@ import '../providers/user_provider.dart';
 import 'alphabet_screen.dart';
 import 'color_learning_screen.dart';
 import 'game_screen.dart';
+import 'number_screen.dart';
 
 class HomeScreen extends StatelessWidget {
   const HomeScreen({super.key});
@@ -23,55 +24,72 @@ class HomeScreen extends StatelessWidget {
           ),
         ),
         child: SafeArea(
-          child: Center(
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Text(
-                  'Welcome, $userName!',
-                  style: const TextStyle(
-                    fontSize: 32,
-                    fontWeight: FontWeight.bold,
-                    color: Colors.blue,
-                  ),
-                ),
-                const SizedBox(height: 50),
-                _buildActivityButton(
-                  context,
-                  'Learn Alphabet',
-                  Icons.abc,
-                  () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const AlphabetScreen(),
+          child: SingleChildScrollView(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(vertical: 32.0),
+              child: Center(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Text(
+                      'Welcome, $userName!',
+                      style: const TextStyle(
+                        fontSize: 32,
+                        fontWeight: FontWeight.bold,
+                        color: Colors.blue,
+                      ),
                     ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                _buildActivityButton(
-                  context,
-                  'Learn Colors',
-                  Icons.palette,
-                  () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const ColorLearningScreen(),
+                    const SizedBox(height: 50),
+                    _buildActivityButton(
+                      context,
+                      'Learn Alphabet',
+                      Icons.abc,
+                      () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const AlphabetScreen(),
+                        ),
+                      ),
                     ),
-                  ),
-                ),
-                const SizedBox(height: 20),
-                _buildActivityButton(
-                  context,
-                  'Learn Math',
-                  Icons.calculate,
-                  () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) => const MathGameScreen(),
+                    const SizedBox(height: 20),
+                    _buildActivityButton(
+                      context,
+                      'Learn Numbers',
+                      Icons.numbers,
+                      () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const NumberScreen(),
+                        ),
+                      ),
                     ),
-                  ),
+                    const SizedBox(height: 20),
+                    _buildActivityButton(
+                      context,
+                      'Learn Colors',
+                      Icons.palette,
+                      () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const ColorLearningScreen(),
+                        ),
+                      ),
+                    ),
+                    const SizedBox(height: 20),
+                    _buildActivityButton(
+                      context,
+                      'Learn Math',
+                      Icons.calculate,
+                      () => Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                          builder: (context) => const MathGameScreen(),
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
+              ),
             ),
           ),
         ),
@@ -116,6 +134,56 @@ class HomeScreen extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                   color: Colors.blue,
                 ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget _buildGameCard(
+    BuildContext context,
+    String title,
+    String description,
+    IconData icon,
+    VoidCallback onPressed,
+  ) {
+    return Container(
+      width: 200,
+      height: 200,
+      decoration: BoxDecoration(
+        color: Colors.white,
+        borderRadius: BorderRadius.circular(20),
+        boxShadow: [
+          BoxShadow(
+            color: Colors.blue.withOpacity(0.3),
+            blurRadius: 15,
+            spreadRadius: 5,
+          ),
+        ],
+      ),
+      child: Material(
+        color: Colors.transparent,
+        child: InkWell(
+          onTap: onPressed,
+          borderRadius: BorderRadius.circular(20),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Icon(icon, size: 64, color: Colors.blue),
+              const SizedBox(height: 16),
+              Text(
+                title,
+                style: const TextStyle(
+                  fontSize: 24,
+                  fontWeight: FontWeight.bold,
+                  color: Colors.blue,
+                ),
+              ),
+              Text(
+                description,
+                style: const TextStyle(fontSize: 16, color: Colors.blue),
               ),
             ],
           ),
