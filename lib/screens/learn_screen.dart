@@ -1,75 +1,55 @@
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
+import 'package:kids_learning/screens/alphabet_screen.dart';
+import 'package:kids_learning/screens/color_learning_screen.dart';
+import 'package:kids_learning/screens/number_screen.dart';
 
-import '../providers/user_provider.dart';
-import 'games_screen.dart';
-import 'learn_screen.dart';
-
-class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+class LearnScreen extends StatelessWidget {
+  const LearnScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final userName = context.watch<UserProvider>().userName;
-
     return Scaffold(
-      body: Container(
-        decoration: BoxDecoration(
-          gradient: LinearGradient(
-            begin: Alignment.topCenter,
-            end: Alignment.bottomCenter,
-            colors: [Colors.blue.shade100, Colors.white],
-          ),
-        ),
-        child: SafeArea(
-          child: SingleChildScrollView(
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Center(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      'Welcome, $userName!',
-                      style: const TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue,
-                      ),
-                    ),
-                    const SizedBox(height: 50),
-
-                    _buildCard(
-                      context,
-                      'Learn',
-                      'Learn alphabet, numbers, and colors',
-                      Icons.school,
-                      Colors.blue,
-                      () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const LearnScreen(),
-                        ),
-                      ),
-                    ),
-                    const SizedBox(height: 16),
-                    _buildCard(
-                      context,
-                      'Games',
-                      'Play fun learning games',
-                      Icons.games,
-                      Colors.green,
-                      () => Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                          builder: (context) => const GamesScreen(),
-                        ),
-                      ),
-                    ),
-                  ],
+      appBar: AppBar(title: const Text('Learn'), centerTitle: true),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.stretch,
+            children: [
+              _buildActivityButton(
+                context,
+                'Learn Alphabet',
+                Icons.abc,
+                () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const AlphabetScreen(),
+                  ),
                 ),
               ),
-            ),
+              const SizedBox(height: 20),
+              _buildActivityButton(
+                context,
+                'Learn Numbers',
+                Icons.numbers,
+                () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => const NumberScreen()),
+                ),
+              ),
+              const SizedBox(height: 20),
+              _buildActivityButton(
+                context,
+                'Learn Colors',
+                Icons.palette,
+                () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ColorLearningScreen(),
+                  ),
+                ),
+              ),
+            ],
           ),
         ),
       ),
@@ -121,7 +101,7 @@ class HomeScreen extends StatelessWidget {
     );
   }
 
-  Widget _buildCard(
+  Widget _buildLearnCard(
     BuildContext context,
     String title,
     String description,
