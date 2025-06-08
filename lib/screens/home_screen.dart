@@ -15,20 +15,7 @@ class HomeScreen extends StatelessWidget {
     final userName = context.watch<UserProvider>().userName;
     final authProvider = context.watch<AuthProvider>();
     final currentUser = authProvider.currentUser;
-
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Kids Learning'),
-        actions: [
-          IconButton(
-            icon: const Icon(Icons.logout),
-            onPressed: () {
-              authProvider.logout();
-              Navigator.pushReplacementNamed(context, '/login');
-            },
-          ),
-        ],
-      ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -45,6 +32,30 @@ class HomeScreen extends StatelessWidget {
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        const SizedBox(
+                          width: 40,
+                        ), // Add space to balance the logout button
+                        const Text(
+                          'Kids Learning',
+                          style: TextStyle(
+                            fontSize: 24,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.blue,
+                          ),
+                        ),
+                        IconButton(
+                          icon: const Icon(Icons.logout),
+                          onPressed: () {
+                            authProvider.logout();
+                            Navigator.pushReplacementNamed(context, '/login');
+                          },
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 40),
                     Text(
                       'Welcome, ${currentUser?.isGuest == true ? 'Guest' : userName}!',
                       style: const TextStyle(
