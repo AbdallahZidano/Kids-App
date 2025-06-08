@@ -3,6 +3,7 @@ import 'package:kids_learning/providers/alphabet_game_provider.dart';
 import 'package:provider/provider.dart';
 
 import 'providers/alphabet_provider.dart';
+import 'providers/arabic_alphabet_provider.dart';
 import 'providers/auth_provider.dart';
 import 'providers/color_provider.dart';
 import 'providers/game_provider.dart';
@@ -34,6 +35,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => AlphabetGameProvider()),
         ChangeNotifierProvider(create: (_) => MonthProvider()),
         ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ChangeNotifierProvider(create: (_) => ArabicAlphabetProvider()),
       ],
       child: MaterialApp(
         title: 'Kids Learning',
