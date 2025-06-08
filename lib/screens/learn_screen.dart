@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:kids_learning/screens/alphabet_screen.dart';
 import 'package:kids_learning/screens/arabic_alphabet_screen.dart';
+import 'package:kids_learning/screens/arabic_color_screen.dart';
 import 'package:kids_learning/screens/arabic_month_screen.dart';
 import 'package:kids_learning/screens/arabic_number_screen.dart';
 import 'package:kids_learning/screens/color_learning_screen.dart';
@@ -74,6 +75,18 @@ class LearnScreen extends StatelessWidget {
                   context,
                   MaterialPageRoute(
                     builder: (context) => const ColorLearningScreen(),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              _buildActivityButton(
+                context,
+                'تعلم الالوان بالعربية',
+                Icons.translate,
+                () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ArabicColorScreen(),
                   ),
                 ),
               ),

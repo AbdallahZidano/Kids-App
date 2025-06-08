@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 
 import 'providers/alphabet_provider.dart';
 import 'providers/arabic_alphabet_provider.dart';
+import 'providers/arabic_color_provider.dart';
 import 'providers/arabic_month_provider.dart';
 import 'providers/arabic_number_provider.dart';
 import 'providers/auth_provider.dart';
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider(create: (_) => ArabicAlphabetProvider()),
         ChangeNotifierProvider(create: (_) => ArabicNumberProvider()),
         ChangeNotifierProvider(create: (_) => ArabicMonthProvider()),
+        ChangeNotifierProvider(create: (_) => ArabicColorProvider()),
       ],
       child: MaterialApp(
         title: 'Kids Learning',
