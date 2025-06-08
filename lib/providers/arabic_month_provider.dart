@@ -15,7 +15,8 @@ class ArabicMonthProvider with ChangeNotifier {
   }
 
   Future<void> _initTts() async {
-    await _flutterTts.setLanguage('ar');
+    await _flutterTts.stop();
+    await _flutterTts.setLanguage('ar-SA');
     await _flutterTts.setSpeechRate(0.5);
     await _flutterTts.setVolume(1.0);
     await _flutterTts.setPitch(1.0);
@@ -30,17 +31,25 @@ class ArabicMonthProvider with ChangeNotifier {
       return;
     }
 
-    _currentMonth = month.month;
-    _isSpeaking = true;
-    notifyListeners();
+    try {
+      await _initTts(); // Reinitialize TTS before speaking
+      _isSpeaking = true;
+      _currentMonth = month.name;
+      notifyListeners();
 
-    await _flutterTts.speak(month.name);
+      await _flutterTts.speak(month.name);
 
-    _flutterTts.setCompletionHandler(() {
+      _flutterTts.setCompletionHandler(() {
+        _isSpeaking = false;
+        _currentMonth = null;
+        notifyListeners();
+      });
+    } catch (e) {
+      debugPrint('Error speaking Arabic month: $e');
       _isSpeaking = false;
       _currentMonth = null;
       notifyListeners();
-    });
+    }
   }
 
   @override

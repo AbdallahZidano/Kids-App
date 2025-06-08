@@ -90,7 +90,7 @@ class ColorLearningScreen extends StatelessWidget {
             color.name,
             style: const TextStyle(
               fontSize: 32,
-              fontWeight: FontWeight.bold,
+
               color: Colors.white,
               shadows: [
                 Shadow(

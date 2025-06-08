@@ -34,7 +34,7 @@ class LearnScreen extends StatelessWidget {
               const SizedBox(height: 20),
               _buildActivityButton(
                 context,
-                'Learn Arabic Alphabet',
+                'تعلم الحروف العربية',
                 Icons.translate,
                 () => Navigator.push(
                   context,
@@ -56,7 +56,7 @@ class LearnScreen extends StatelessWidget {
               const SizedBox(height: 20),
               _buildActivityButton(
                 context,
-                'Learn Arabic Numbers',
+                'تعلم الارقام العربية',
                 Icons.translate,
                 () => Navigator.push(
                   context,
@@ -90,7 +90,7 @@ class LearnScreen extends StatelessWidget {
               const SizedBox(height: 20),
               _buildActivityButton(
                 context,
-                'Learn Arabic Months',
+                'تعلم الاشهر بالعربية',
                 Icons.translate,
                 () => Navigator.push(
                   context,
@@ -143,7 +143,7 @@ class LearnScreen extends StatelessWidget {
                 title,
                 style: TextStyle(
                   fontSize: 20,
-                  fontWeight: FontWeight.bold,
+
                   color: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
@@ -193,7 +193,7 @@ class LearnScreen extends StatelessWidget {
                           title,
                           style: const TextStyle(
                             fontSize: 24,
-                            fontWeight: FontWeight.bold,
+
                             color: Colors.white,
                           ),
                         ),

@@ -166,7 +166,7 @@ class _StoriesScreenState extends State<StoriesScreen>
                           story.title,
                           style: const TextStyle(
                             fontSize: 20,
-                            fontWeight: FontWeight.bold,
+
                             color: Colors.white,
                           ),
                         ),
@@ -198,10 +198,7 @@ class _StoriesScreenState extends State<StoriesScreen>
                     ),
                     child: Text(
                       story.category,
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ),
                   Container(
@@ -215,10 +212,7 @@ class _StoriesScreenState extends State<StoriesScreen>
                     ),
                     child: Text(
                       _formatDuration(story.duration),
-                      style: const TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold,
-                      ),
+                      style: const TextStyle(color: Colors.white),
                     ),
                   ),
                 ],

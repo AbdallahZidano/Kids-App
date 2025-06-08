@@ -105,7 +105,7 @@ class GamesScreen extends StatelessWidget {
                         title,
                         style: const TextStyle(
                           fontSize: 20,
-                          fontWeight: FontWeight.bold,
+
                           color: Colors.blue,
                         ),
                       ),

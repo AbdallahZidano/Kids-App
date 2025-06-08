@@ -19,7 +19,7 @@ class ArabicMonthScreen extends StatelessWidget {
             padding: const EdgeInsets.all(16),
             gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
               crossAxisCount: 2,
-              childAspectRatio: 1.2,
+              childAspectRatio: 1.0,
               crossAxisSpacing: 16,
               mainAxisSpacing: 16,
             ),
@@ -75,7 +75,7 @@ class ArabicMonthScreen extends StatelessWidget {
                   month.month,
                   style: TextStyle(
                     fontSize: 48,
-                    fontWeight: FontWeight.bold,
+
                     color:
                         isSpeaking
                             ? Theme.of(context).colorScheme.onPrimary

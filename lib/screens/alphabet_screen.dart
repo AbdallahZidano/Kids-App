@@ -99,7 +99,7 @@ class AlphabetScreen extends StatelessWidget {
                 letter.letter,
                 style: TextStyle(
                   fontSize: 48,
-                  fontWeight: FontWeight.bold,
+
                   color:
                       isSpeaking ? Colors.blue.shade700 : Colors.blue.shade500,
                 ),

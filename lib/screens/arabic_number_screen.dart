@@ -87,7 +87,7 @@ class ArabicNumberScreen extends StatelessWidget {
                   number.number,
                   style: TextStyle(
                     fontSize: 48,
-                    fontWeight: FontWeight.bold,
+
                     color:
                         isSpeaking
                             ? Theme.of(context).colorScheme.onPrimary

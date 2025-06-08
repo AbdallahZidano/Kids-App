@@ -16,6 +16,7 @@ class ArabicNumberProvider with ChangeNotifier {
   }
 
   Future<void> _initTts() async {
+    await _flutterTts.stop();
     await _flutterTts.setLanguage('ar-SA');
     await _flutterTts.setSpeechRate(0.5);
     await _flutterTts.setVolume(1.0);
@@ -31,15 +32,25 @@ class ArabicNumberProvider with ChangeNotifier {
       return;
     }
 
-    _isSpeaking = true;
-    _currentNumber = number.number;
-    notifyListeners();
+    try {
+      await _initTts(); // Reinitialize TTS before speaking
+      _isSpeaking = true;
+      _currentNumber = number.number;
+      notifyListeners();
 
-    await _flutterTts.speak(number.number);
+      await _flutterTts.speak(number.word);
 
-    _isSpeaking = false;
-    _currentNumber = null;
-    notifyListeners();
+      _flutterTts.setCompletionHandler(() {
+        _isSpeaking = false;
+        _currentNumber = null;
+        notifyListeners();
+      });
+    } catch (e) {
+      debugPrint('Error speaking Arabic number: $e');
+      _isSpeaking = false;
+      _currentNumber = null;
+      notifyListeners();
+    }
   }
 
   @override

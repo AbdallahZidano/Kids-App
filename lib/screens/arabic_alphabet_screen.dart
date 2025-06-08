@@ -102,7 +102,7 @@ class ArabicAlphabetScreen extends StatelessWidget {
                 letter.letter,
                 style: TextStyle(
                   fontSize: 48,
-                  fontWeight: FontWeight.bold,
+
                   color:
                       isSpeaking
                           ? Colors.green.shade700

@@ -16,6 +16,7 @@ class ArabicAlphabetProvider with ChangeNotifier {
   }
 
   Future<void> _initTts() async {
+    await _flutterTts.stop();
     await _flutterTts.setLanguage('ar-SA');
     await _flutterTts.setSpeechRate(0.5);
     await _flutterTts.setVolume(1.0);
@@ -31,15 +32,25 @@ class ArabicAlphabetProvider with ChangeNotifier {
       return;
     }
 
-    _isSpeaking = true;
-    _currentLetter = letter.letter;
-    notifyListeners();
+    try {
+      await _initTts(); // Reinitialize TTS before speaking
+      _isSpeaking = true;
+      _currentLetter = letter.letter;
+      notifyListeners();
 
-    await _flutterTts.speak("${letter.letter} ${letter.example}");
+      await _flutterTts.speak("${letter.letter} ${letter.example}");
 
-    _isSpeaking = false;
-    _currentLetter = null;
-    notifyListeners();
+      _flutterTts.setCompletionHandler(() {
+        _isSpeaking = false;
+        _currentLetter = null;
+        notifyListeners();
+      });
+    } catch (e) {
+      debugPrint('Error speaking Arabic letter: $e');
+      _isSpeaking = false;
+      _currentLetter = null;
+      notifyListeners();
+    }
   }
 
   @override

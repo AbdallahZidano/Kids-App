@@ -85,17 +85,31 @@ flutter:
   # "family" key with the font family name, and a "fonts" key with a
   # list giving the asset and other descriptors for the font. For
   # example:
-  fonts:
-    - family: ComicNeue
-      fonts:
-        - asset: assets/fonts/ComicNeue-Regular.ttf
-        - asset: assets/fonts/ComicNeue-Bold.ttf
-          weight: 700
-  #   - family: Trajan Pro
+  # fonts:
+  #   - family: ComicNeue
   #     fonts:
-  #       - asset: fonts/TrajanPro.ttf
-  #       - asset: fonts/TrajanPro_Bold.ttf
+  #       - asset: assets/fonts/ComicNeue-Regular.ttf
+  #       - asset: assets/fonts/ComicNeue-Bold.ttf
   #         weight: 700
-  #
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/to/font-from-package
+
+  fonts:
+  - family: DINNextLTArabic
+    fonts:
+      # - asset: assets/fonts/SFUIDisplay-Ultralight.ttf
+      #   weight: 100
+      # - asset: assets/fonts/SFUIDisplay-Thin.ttf
+      #   weight: 200
+      - asset: assets/fonts/ArbFONTS-DINNEXTLTARABIC-LIGHT-1.ttf
+        weight: 300
+      - asset: assets/fonts/ArbFONTS-DINNextLTArabic-Regular-2.ttf
+        weight: 400
+      - asset: assets/fonts/ArbFONTS-DINNextLTArabic-Medium-2.ttf
+        weight: 500
+      # - asset: assets/fonts/SFUIDisplay-Semibold.ttf
+      #   weight: 600
+      - asset: assets/fonts/ArbFONTS-DINNextLTArabic-Bold-2.ttf
+        weight: 700
+      # - asset: assets/fonts/SFUIDisplay-Heavy.ttf
+      #   weight: 800
+      # - asset: assets/fonts/SFUIDisplay-Black.ttf
+      #   weight: 900

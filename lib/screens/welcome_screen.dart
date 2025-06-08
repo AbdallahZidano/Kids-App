@@ -27,7 +27,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
   void _validateName() {
     final name = _nameController.text.trim();
     setState(() {
-      _isNameValid = name.length >= 2 &&
+      _isNameValid =
+          name.length >= 2 &&
           name.length <= 20 &&
           RegExp(r'^[a-zA-Z\s]+$').hasMatch(name);
     });
@@ -42,8 +43,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
 
     try {
       await context.read<UserProvider>().saveUserName(
-            _nameController.text.trim(),
-          );
+        _nameController.text.trim(),
+      );
 
       if (mounted) {
         // Wait for the welcome message to finish before navigating
@@ -100,11 +101,7 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                       const SizedBox(height: 24),
                       const Text(
                         'Welcome to Kids Learning!',
-                        style: TextStyle(
-                          fontSize: 28,
-                          fontWeight: FontWeight.bold,
-                          color: Colors.blue,
-                        ),
+                        style: TextStyle(fontSize: 28, color: Colors.blue),
                         textAlign: TextAlign.center,
                       ),
                       const SizedBox(height: 8),
@@ -167,17 +164,15 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               borderRadius: BorderRadius.circular(12),
                             ),
                           ),
-                          child: _isLoading
-                              ? const CircularProgressIndicator(
-                                  color: Colors.white,
-                                )
-                              : const Text(
-                                  'Start Learning',
-                                  style: TextStyle(
-                                    fontSize: 18,
-                                    fontWeight: FontWeight.bold,
+                          child:
+                              _isLoading
+                                  ? const CircularProgressIndicator(
+                                    color: Colors.white,
+                                  )
+                                  : const Text(
+                                    'Start Learning',
+                                    style: TextStyle(fontSize: 18),
                                   ),
-                                ),
                         ),
                       ),
                     ],

@@ -76,7 +76,7 @@ class NumberScreen extends StatelessWidget {
                 number.number,
                 style: TextStyle(
                   fontSize: 64,
-                  fontWeight: FontWeight.bold,
+
                   color:
                       isSpeaking ? Colors.blue.shade700 : Colors.blue.shade500,
                 ),

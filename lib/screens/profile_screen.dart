@@ -23,10 +23,7 @@ class ProfileScreen extends StatelessWidget {
                 const SizedBox(height: 16),
                 Text(
                   'Welcome, ${userProvider.userName ?? "Friend"}!',
-                  style: const TextStyle(
-                    fontSize: 24,
-                    fontWeight: FontWeight.bold,
-                  ),
+                  style: const TextStyle(fontSize: 24),
                 ),
                 const SizedBox(height: 32),
                 const Text(
@@ -80,13 +77,7 @@ class ProfileScreen extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(
-                    title,
-                    style: const TextStyle(
-                      fontSize: 18,
-                      fontWeight: FontWeight.bold,
-                    ),
-                  ),
+                  Text(title, style: const TextStyle(fontSize: 18)),
                   Text(
                     description,
                     style: TextStyle(fontSize: 14, color: Colors.grey[600]),

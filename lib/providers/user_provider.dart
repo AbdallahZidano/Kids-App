@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
+import '../providers/auth_provider.dart';
+import '../utils/database_helper.dart';
 
 class UserProvider extends ChangeNotifier {
   String? _userName;
@@ -11,7 +13,6 @@ class UserProvider extends ChangeNotifier {
   bool get isFirstTime => _isFirstTime;
 
   UserProvider() {
-    _loadUserName();
     _initializeTts();
   }
 
@@ -22,12 +23,19 @@ class UserProvider extends ChangeNotifier {
     await _flutterTts.setPitch(1.0);
   }
 
-  Future<void> _loadUserName() async {
+  Future<void> loadUserName(AuthProvider authProvider) async {
     try {
-      final prefs = await SharedPreferences.getInstance();
-      _userName = prefs.getString('user_name');
-      _isFirstTime = _userName == null;
-      notifyListeners();
+      if (authProvider.currentUser != null &&
+          !authProvider.currentUser!.isGuest) {
+        final user = await DatabaseHelper.instance.getUser(
+          authProvider.currentUser!.username,
+        );
+        if (user != null) {
+          _userName = user.username;
+          _isFirstTime = false;
+          notifyListeners();
+        }
+      }
     } catch (e) {
       debugPrint('Error loading user name: $e');
     }
@@ -35,8 +43,6 @@ class UserProvider extends ChangeNotifier {
 
   Future<void> saveUserName(String name) async {
     try {
-      final prefs = await SharedPreferences.getInstance();
-      await prefs.setString('user_name', name);
       _userName = name;
       _isFirstTime = false;
       notifyListeners();

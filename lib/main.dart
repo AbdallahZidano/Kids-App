@@ -47,7 +47,7 @@ class MyApp extends StatelessWidget {
         theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
           useMaterial3: true,
-          fontFamily: 'ComicNeue',
+          fontFamily: 'DINNextLTArabic',
         ),
         home: Consumer2<UserProvider, AuthProvider>(
           builder: (context, userProvider, authProvider, child) {

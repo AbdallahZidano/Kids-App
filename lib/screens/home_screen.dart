@@ -40,11 +40,7 @@ class HomeScreen extends StatelessWidget {
                         ), // Add space to balance the logout button
                         const Text(
                           'Kids Learning',
-                          style: TextStyle(
-                            fontSize: 24,
-                            fontWeight: FontWeight.bold,
-                            color: Colors.blue,
-                          ),
+                          style: TextStyle(fontSize: 24, color: Colors.blue),
                         ),
                         IconButton(
                           icon: const Icon(Icons.logout),
@@ -58,11 +54,7 @@ class HomeScreen extends StatelessWidget {
                     const SizedBox(height: 40),
                     Text(
                       'Welcome, ${currentUser?.isGuest == true ? 'Guest' : userName}!',
-                      style: const TextStyle(
-                        fontSize: 32,
-                        fontWeight: FontWeight.bold,
-                        color: Colors.blue,
-                      ),
+                      style: const TextStyle(fontSize: 32, color: Colors.blue),
                     ),
                     const SizedBox(height: 50),
 
@@ -149,11 +141,7 @@ class HomeScreen extends StatelessWidget {
               const SizedBox(height: 16),
               Text(
                 title,
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.blue,
-                ),
+                style: const TextStyle(fontSize: 24, color: Colors.blue),
               ),
             ],
           ),
@@ -201,7 +189,7 @@ class HomeScreen extends StatelessWidget {
                           title,
                           style: const TextStyle(
                             fontSize: 24,
-                            fontWeight: FontWeight.bold,
+
                             color: Colors.white,
                           ),
                         ),

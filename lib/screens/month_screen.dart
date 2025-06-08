@@ -61,20 +61,12 @@ class MonthScreen extends StatelessWidget {
             children: [
               Text(
                 month.number,
-                style: const TextStyle(
-                  fontSize: 32,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+                style: const TextStyle(fontSize: 32, color: Colors.white),
               ),
               const SizedBox(height: 8),
               Text(
                 month.name,
-                style: const TextStyle(
-                  fontSize: 24,
-                  fontWeight: FontWeight.bold,
-                  color: Colors.white,
-                ),
+                style: const TextStyle(fontSize: 24, color: Colors.white),
               ),
               if (isSpeaking) ...[
                 const SizedBox(height: 16),

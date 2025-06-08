@@ -140,7 +140,7 @@ class _MathGameScreenState extends State<MathGameScreen>
                             _message!,
                             style: const TextStyle(
                               fontSize: 24,
-                              fontWeight: FontWeight.bold,
+
                               color: Colors.white,
                             ),
                             textAlign: TextAlign.center,
@@ -167,19 +167,11 @@ class _MathGameScreenState extends State<MathGameScreen>
           children: [
             Text(
               'Score: ${gameProvider.score}',
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.blue,
-              ),
+              style: const TextStyle(fontSize: 24, color: Colors.blue),
             ),
             Text(
               'Level: ${gameProvider.level}',
-              style: const TextStyle(
-                fontSize: 24,
-                fontWeight: FontWeight.bold,
-                color: Colors.blue,
-              ),
+              style: const TextStyle(fontSize: 24, color: Colors.blue),
             ),
           ],
         ),
@@ -199,11 +191,7 @@ class _MathGameScreenState extends State<MathGameScreen>
           children: [
             Text(
               gameProvider.currentQuestion,
-              style: const TextStyle(
-                fontSize: 32,
-                fontWeight: FontWeight.bold,
-                color: Colors.blue,
-              ),
+              style: const TextStyle(fontSize: 32, color: Colors.blue),
               textAlign: TextAlign.center,
             ),
             const SizedBox(height: 16),
@@ -268,7 +256,7 @@ class _MathGameScreenState extends State<MathGameScreen>
                 option.toString(),
                 style: TextStyle(
                   fontSize: 32,
-                  fontWeight: FontWeight.bold,
+
                   color:
                       isSelected
                           ? (isCorrect

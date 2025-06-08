@@ -69,14 +69,7 @@ class AlphabetGameScreen extends StatelessWidget {
             style: TextStyle(fontSize: 16, color: Colors.blue.shade300),
           ),
           const SizedBox(height: 4),
-          Text(
-            value,
-            style: const TextStyle(
-              fontSize: 24,
-              fontWeight: FontWeight.bold,
-              color: Colors.blue,
-            ),
-          ),
+          Text(value, style: const TextStyle(fontSize: 24, color: Colors.blue)),
         ],
       ),
     );
@@ -123,11 +116,7 @@ class AlphabetGameScreen extends StatelessWidget {
           const SizedBox(height: 16),
           Text(
             provider.currentLetter.pronunciation,
-            style: const TextStyle(
-              fontSize: 48,
-              fontWeight: FontWeight.bold,
-              color: Colors.blue,
-            ),
+            style: const TextStyle(fontSize: 48, color: Colors.blue),
           ),
         ],
       ),
@@ -197,7 +186,7 @@ class AlphabetGameScreen extends StatelessWidget {
               letter.letter,
               style: TextStyle(
                 fontSize: 48,
-                fontWeight: FontWeight.bold,
+
                 color:
                     isSelected
                         ? (isCorrect
@@ -219,11 +208,7 @@ class AlphabetGameScreen extends StatelessWidget {
         children: [
           Text(
             'Game Over!',
-            style: TextStyle(
-              fontSize: 32,
-              fontWeight: FontWeight.bold,
-              color: Colors.blue.shade700,
-            ),
+            style: TextStyle(fontSize: 32, color: Colors.blue.shade700),
           ),
           const SizedBox(height: 16),
           Text(
