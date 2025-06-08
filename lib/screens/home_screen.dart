@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
+import '../providers/auth_provider.dart';
 import '../providers/user_provider.dart';
 import 'games_screen.dart';
 import 'learn_screen.dart';
@@ -12,8 +13,22 @@ class HomeScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final userName = context.watch<UserProvider>().userName;
+    final authProvider = context.watch<AuthProvider>();
+    final currentUser = authProvider.currentUser;
 
     return Scaffold(
+      appBar: AppBar(
+        title: const Text('Kids Learning'),
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.logout),
+            onPressed: () {
+              authProvider.logout();
+              Navigator.pushReplacementNamed(context, '/login');
+            },
+          ),
+        ],
+      ),
       body: Container(
         decoration: BoxDecoration(
           gradient: LinearGradient(
@@ -31,7 +46,7 @@ class HomeScreen extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     Text(
-                      'Welcome, $userName!',
+                      'Welcome, ${currentUser?.isGuest == true ? 'Guest' : userName}!',
                       style: const TextStyle(
                         fontSize: 32,
                         fontWeight: FontWeight.bold,
