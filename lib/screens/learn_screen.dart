@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:kids_learning/screens/alphabet_screen.dart';
 import 'package:kids_learning/screens/arabic_alphabet_screen.dart';
+import 'package:kids_learning/screens/arabic_month_screen.dart';
+import 'package:kids_learning/screens/arabic_number_screen.dart';
 import 'package:kids_learning/screens/color_learning_screen.dart';
 import 'package:kids_learning/screens/month_screen.dart';
 import 'package:kids_learning/screens/number_screen.dart';
@@ -54,6 +56,18 @@ class LearnScreen extends StatelessWidget {
               const SizedBox(height: 20),
               _buildActivityButton(
                 context,
+                'Learn Arabic Numbers',
+                Icons.translate,
+                () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ArabicNumberScreen(),
+                  ),
+                ),
+              ),
+              const SizedBox(height: 20),
+              _buildActivityButton(
+                context,
                 'Learn Colors',
                 Icons.palette,
                 () => Navigator.push(
@@ -73,6 +87,18 @@ class LearnScreen extends StatelessWidget {
                   MaterialPageRoute(builder: (context) => const MonthScreen()),
                 ),
               ),
+              const SizedBox(height: 20),
+              _buildActivityButton(
+                context,
+                'Learn Arabic Months',
+                Icons.translate,
+                () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ArabicMonthScreen(),
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -84,38 +110,41 @@ class LearnScreen extends StatelessWidget {
     BuildContext context,
     String title,
     IconData icon,
-    VoidCallback onPressed,
+    VoidCallback onTap,
   ) {
-    return Container(
-      width: 200,
-      height: 200,
-      decoration: BoxDecoration(
-        color: Colors.white,
-        borderRadius: BorderRadius.circular(20),
-        boxShadow: [
-          BoxShadow(
-            color: Colors.blue.withOpacity(0.3),
-            blurRadius: 15,
-            spreadRadius: 5,
+    return Card(
+      elevation: 4,
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
+      child: InkWell(
+        onTap: onTap,
+        borderRadius: BorderRadius.circular(16),
+        child: Container(
+          padding: const EdgeInsets.all(20),
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(16),
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.bottomRight,
+              colors: [
+                Theme.of(context).colorScheme.primary,
+                Theme.of(context).colorScheme.secondary,
+              ],
+            ),
           ),
-        ],
-      ),
-      child: Material(
-        color: Colors.transparent,
-        child: InkWell(
-          onTap: onPressed,
-          borderRadius: BorderRadius.circular(20),
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.center,
+          child: Row(
             children: [
-              Icon(icon, size: 64, color: Colors.blue),
-              const SizedBox(height: 16),
+              Icon(
+                icon,
+                size: 32,
+                color: Theme.of(context).colorScheme.onPrimary,
+              ),
+              const SizedBox(width: 16),
               Text(
                 title,
-                style: const TextStyle(
-                  fontSize: 24,
+                style: TextStyle(
+                  fontSize: 20,
                   fontWeight: FontWeight.bold,
-                  color: Colors.blue,
+                  color: Theme.of(context).colorScheme.onPrimary,
                 ),
               ),
             ],

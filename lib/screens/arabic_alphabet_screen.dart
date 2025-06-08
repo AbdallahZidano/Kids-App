@@ -11,7 +11,7 @@ class ArabicAlphabetScreen extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Learn Arabic Alphabet'),
+        title: const Text('تعلم الحروف العربية'),
         centerTitle: true,
       ),
       body: Consumer<ArabicAlphabetProvider>(
