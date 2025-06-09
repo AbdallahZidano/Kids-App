@@ -80,7 +80,7 @@ class ArabicAlphabetScreen extends StatelessWidget {
                   top: Radius.circular(16),
                 ),
                 child: Image.asset(
-                  'assets/images/arabic/${letter.letter}.jpeg',
+                  letter.imagePath,
                   height: 120,
                   width: double.infinity,
                   fit: BoxFit.contain,
